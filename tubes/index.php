@@ -1,236 +1,153 @@
 <?php
-require 'functions.php';
+require "functions.php";
 
-$mahasiswa = query("SELECT * FROM volunteer ORDER BY volunteer.nama ASC");
+$mahasiswa = query("SELECT * FROM pendonatur ORDER BY nama ASC");
+
 ?>
 
-<!DOCTYPE html>
-<html lang="id">
+
+<!doctype html>
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RelawanKu - Sistem Manajemen Relawan Digital</title>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-    <link href="index.css" rel="stylesheet">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+  <!-- Favicon -->
+  <link rel="icon" href="img/logo.jpg" />
+  <link rel="stylesheet" href="index.css" />
+
+  <title>Website Donasi</title>
 </head>
 <body>
-    <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
-        <div class="container">
-            <a class="navbar-brand" href="#">Volunteerx</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav mx-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="#opportunities">Kesempatan</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#organizations">Organisasi</a>
-                    </li>
-                </ul>
-                <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#loginModal">
-                            <i class="fas fa-sign-out-alt"></i> Log Out
-                        </a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
 
-    <!-- even -->
-    <section class="hero-section">
-        <div class="container text-center">
-            <h1 class="hero-title">Sistem Manajemen Relawan Digital</h1>
-            <div class="mt-4">
-                <button class="btn btn-light btn-custom" data-bs-toggle="modal" data-bs-target="#findModal">
-                    <i class="fas fa-search"></i> Cari Kesempatan
-                </button>
-                <button class="btn btn-outline-light btn-outline-custom" data-bs-toggle="modal" data-bs-target="#postModal">
-                    <i class="fas fa-plus"></i> Posting Kesempatan
-                </button>
-            </div>
-        </div>
-    </section>
-
-    <!-- Main Content -->
-    <div class="container content-section">
-        <div class="row">
-            <!-- even volunteerx -->
-            <div class="col-lg-8" id="opportunities">
-                <h2 class="section-title">Kesempatan Terbaru</h2>
-                
-                <div class="opportunity-card">
-                    <h3 class="opportunity-title">Bakti Sosial</h3>
-                    <p class="opportunity-location">
-                        <i class="fas fa-map-marker-alt icon-location"></i>
-                        BantuNet • Desa Suka Kamu
-                    </p>
-                    <p class="opportunity-description">
-                        Kegiatan sosial di desa desa
-                    </p>
-                </div>
-
-                <div class="opportunity-card">
-                    <h3 class="opportunity-title">Pemghijawan Gunung</h3>
-                    <p class="opportunity-location">
-                        <i class="fas fa-map-marker-alt icon-location"></i>
-                        Bumi Hijau • Bandung
-                    </p>
-                    <p class="opportunity-description">
-                        Relawan untuk acara lingkungan dan pelestarian alam
-                    </p>
-                </div>
-
-                <div class="opportunity-card">
-                    <h3 class="opportunity-title">Pelatihan Pertolongan Pertama</h3>
-                    <p class="opportunity-location">
-                        <i class="fas fa-map-marker-alt icon-location"></i>
-                        Yayasan Pendidikan • Bandung
-                    </p>
-                    <p class="opportunity-description">
-                        Pelatihan dasar P3k Untuk anak-anak
-                    </p>
-                </div>
-            </div>
-
-            <!-- Organizations -->
-            <div class="col-lg-4" id="organizations">
-                <h2 class="section-title">Organisasi</h2>
-                
-                <div class="organization-item">
-                    <i class="fas fa-hands-helping me-2"></i>
-                    BantuNet
-                </div>
-                
-                <div class="organization-item">
-                    <i class="fas fa-leaf me-2"></i>
-                    Bumi Hijau
-                </div>
-                
-                <div class="organization-item">
-                    <i class="fas fa-graduation-cap me-2"></i>
-                    Yayasan Pendidikan
-                </div>
-            </div>
-        </div>
+  <!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">Donasi</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav mx-auto">
+        <li class="nav-item mx-2"><a class="nav-link active" href="#home">Home</a></li>
+        <li class="nav-item mx-2"><a class="nav-link" href="#kampanye">Kampanye</a></li>
+        <li class="nav-item mx-2"><a class="nav-link" href="#donasi">Donasi</a></li>
+      </ul>
+      <div>
+        <button class="btn btn-light me-2">Daftar</button>
+        <button class="btn btn-outline-light">Masuk</button>
+      </div>
     </div>
+  </div>
+</nav>
 
-    <!-- volunteerx -->
-    <div class="modal fade" id="findModal" tabindex="-1">
-        <div class="modal-dialog modal-lg">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title">Cari Kesempatan</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-                </div>
-                <div class="modal-body">
-                    <form>
-                        <div class="row">
-                            <div class="col-md-6 mb-3">
-                                <label class="form-label">Lokasi</label>
-                                <select class="form-select">
-                                    <option>Semua Lokasi</option>
-                                    <option>Jakarta</option>
-                                    <option>Bandung</option>
-                                    <option>Surabaya</option>
-                                </select>
-                            </div>
-                            <div class="col-md-6 mb-3">
-                                <label class="form-label">Kategori</label>
-                                <select class="form-select">
-                                    <option>Semua Kategori</option>
-                                    <option>Layanan Komunitas</option>
-                                    <option>Lingkungan</option>
-                                    <option>Pendidikan</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="mb-3">
-                            <label class="form-label">Kata Kunci</label>
-                            <input type="text" class="form-control" placeholder="Cari kesempatan...">
-                        </div>
-                    </form>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
-                    <button type="button" class="btn btn-custom">Cari</button>
-                </div>
-            </div>
-        </div>
+
+  <!-- Home Section -->
+  <section id="home" class="text-info bg-primary">
+    <div class="position-relative">
+      <img src="../tubes/img/donasi.jpg" class="img-fluid w-100 vh-100" alt="Banner Donasi" style="object-fit: cover;" />
+      <div class="position-absolute top-50 start-50 translate-middle text-center text-white">
+        <h1 class="display-3">Donasi Peduli</h1>
+        <p class="lead">Bersama kita bisa membantu mereka yang membutuhkan.</p>
+        <a href="#kampanye" class="btn btn-light btn-lg">Lihat Kampanye</a>
+      </div>
     </div>
+  </section>
 
-    <!-- skill -->
-    <div class="modal fade" id="postModal" tabindex="-1">
-        <div class="modal-dialog modal-lg">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title">Posting Kesempatan Baru</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-                </div>
-                <div class="modal-body">
-                    <form>
-                        <div class="mb-3">
-                            <label class="form-label">Judul</label>
-                            <input type="text" class="form-control" placeholder="Judul kesempatan">
-                        </div>
-                        <div class="row">
-                            <div class="col-md-6 mb-3">
-                                <label class="form-label">Organisasi</label>
-                                <input type="text" class="form-control" placeholder="Nama organisasi">
-                            </div>
-                            <div class="col-md-6 mb-3">
-                                <label class="form-label">Lokasi</label>
-                                <input type="text" class="form-control" placeholder="Kota">
-                            </div>
-                        </div>
-                        <div class="mb-3">
-                            <label class="form-label">Deskripsi</label>
-                            <textarea class="form-control" rows="4" placeholder="Jelaskan kesempatan ini..."></textarea>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-6 mb-3">
-                                <label class="form-label">Tanggal Mulai</label>
-                                <input type="date" class="form-control">
-                            </div>
-                            <div class="col-md-6 mb-3">
-                                <label class="form-label">Tanggal Selesai</label>
-                                <input type="date" class="form-control">
-                            </div>
-                        </div>
-                    </form>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
-                    <button type="button" class="btn btn-custom">Posting Kesempatan</button>
-                </div>
-            </div>
+  <!-- Kampanye Section -->
+  <section id="kampanye" class="py-5 bg-light">
+    <div class="container">
+      <h2 class="text-center mb-4">Kampanye Donasi</h2>
+      <div class="row g-4">
+
+      <!-- Kampanye 1 -->
+      <div class="col-md-4">
+        <div class="card h-100">
+          <img src="../tubes/img/banjir.webp" class="card-img-top" alt="Kampanye Banjir" />
+          <div class="card-body">
+            <h5 class="card-title">Bantu Korban Banjir</h5>
+            <p class="card-text">Bantu korban banjir untuk mendapatkan tempat tinggal, makanan, dan obat-obatan.</p>
+            <p class="fw-bold text-primary">👥 124 Donatur</p>
+          </div>
         </div>
-    </div>
+      </div>
 
-    <!-- Login volunteerx -->
-    <div class="modal fade" id="loginModal" tabindex="-1">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title">Konfirmasi Keluar</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-                </div>
-                <div class="modal-body">
-                    <p>Apakah Anda yakin ingin keluar?</p>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
-                    <button type="button" class="btn btn-danger">Keluar</button>
-                </div>
-            </div>
+      <!-- Kampanye 2 -->
+      <div class="col-md-4">
+        <div class="card h-100">
+          <img src="../tubes/img/pendidikan.jpg" class="card-img-top" alt="Kampanye Pendidikan" />
+          <div class="card-body">
+            <h5 class="card-title">Donasi Pendidikan</h5>
+            <p class="card-text">Berikan akses pendidikan untuk anak-anak di daerah terpencil.</p>
+            <p class="fw-bold text-primary">👥 98 Donatur</p>
+          </div>
         </div>
-    </div>
+      </div>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+      <!-- Kampanye 3 -->
+      <div class="col-md-4">
+        <div class="card h-100">
+          <img src="../tubes/img/kesehatan.png" class="card-img-top" alt="Kampanye Kesehatan" />
+          <div class="card-body">
+            <h5 class="card-title">Bantuan Kesehatan</h5>
+            <p class="card-text">Donasi untuk pengadaan obat-obatan dan layanan medis gratis.</p>
+            <p class="fw-bold text-primary">👥 212 Donatur</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+  <!-- Form Donasi -->
+  <section id="donasi" class="py-5">
+    <div class="container">
+      <h2 class="text-center mb-4">Form Donasi</h2>
+      <form action="donasi.php" method="post">
+        <div class="mb-3">
+          <label for="nama" class="form-label">Nama</label>
+          <input type="text" name="nama" id="nama" class="form-control" required />
+        </div>
+        <div class="mb-3">
+          <label for="email" class="form-label">Email</label>
+          <input type="email" name="email" id="email" class="form-control" required />
+        </div>
+         <div class="mb-3">
+          <label for="telepon" class="form-label">Telepon</label>
+          <input type="telepon" name="email" id="telepon" class="form-control" required />
+        </div>
+        <div class="mb-3">
+          <label for="kampanye" class="form-label">Pilih Kampanye</label>
+          <select name="kampanye" id="kampanye" class="form-select" required>
+            <option value="Banjir">Bantu Korban Banjir</option>
+            <option value="Pendidikan">Donasi Pendidikan</option>
+            <option value="Kesehatan">Bantuan Kesehatan</option>
+          </select>
+        </div>
+        <div class="mb-3">
+          <label for="jumlah" class="form-label">Jumlah Donasi (Rp)</label>
+          <input type="number" name="jumlah" id="jumlah" class="form-control" required />
+        </div>
+        <div class="text-center">
+          <button type="submit" class="btn btn-primary">Kirim Donasi</button>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-dark text-light py-4">
+    <div class="container text-center">
+      <p>&copy; 2025 Website Donasi. Bersama Kita Peduli.</p>
+    </div>
+  </footer>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
