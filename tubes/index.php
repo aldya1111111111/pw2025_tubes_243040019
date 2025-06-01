@@ -1,11 +1,11 @@
 <?php
-require "functions.php";
+require "../tubes/functions.php";
 
 $donasi = query("SELECT * FROM donasi");
 ?>
 
 <?php
-require_once 'functions.php';
+require_once '../tubes/functions.php';
 $kampanye = query("SELECT * FROM kampanye");
 ?>
 
@@ -61,35 +61,31 @@ $kampanye = query("SELECT * FROM kampanye");
     </div>
   </section>
 
-  <!-- Kampanye Section -->
-  <section id="kampanye" class="py-5 bg-light">
-    <div class="container">
-      <h2 class="text-center mb-4">Kampanye Donasi</h2>
-      <div class="row g-4">
-<section id="kampanye-baru" class="py-5">
+ <!-- Kampanye Section -->
+<section id="kampanye-baru" class="py-5 bg-light">
   <div class="container">
-    <h2 class="text-center mb-4"></h2>
+    <h2 class="text-center mb-4">Kampanye Donasi</h2>
     <div class="row justify-content-center">
       <div class="col-md-8">
-        <form action="proses_kampanye.php" method="post" class="needs-validation" novalidate enctype="multipart/form-data">
+        <form action="../kampanye_controller.php" method="post" class="needs-validation" novalidate enctype="multipart/form-data">
           
           <!-- Judul Kampanye -->
           <div class="mb-3">
-            <label for="judul" class="form-label">judul</label>
+            <label for="judul" class="form-label">Judul</label>
             <input type="text" name="judul" id="judul" class="form-control" required maxlength="300" />
             <div class="invalid-feedback">Judul kampanye harus diisi (maksimal 300 karakter).</div>
           </div>
           
           <!-- Deskripsi -->
           <div class="mb-3">
-            <label for="deskripsi" class="form-label">deskripsi</label>
+            <label for="deskripsi" class="form-label">Deskripsi</label>
             <textarea name="deskripsi" id="deskripsi" class="form-control" rows="4" required placeholder="Jelaskan tujuan dan manfaat kampanye ini..."></textarea>
             <div class="invalid-feedback">Deskripsi kampanye harus diisi.</div>
           </div>
           
           <!-- Target Dana -->
           <div class="mb-3">
-            <label for="target_dana" class="form-label">target_dana</label>
+            <label for="target_dana" class="form-label">Target Dana</label>
             <input type="number" name="target_dana" id="target_dana" class="form-control" required min="1000000" step="1000" />
             <div class="form-text">Minimal target dana Rp 1.000.000</div>
             <div class="invalid-feedback">Target dana harus diisi minimal Rp 1.000.000.</div>
@@ -100,21 +96,34 @@ $kampanye = query("SELECT * FROM kampanye");
           
           <!-- Tanggal Mulai -->
           <div class="mb-3">
-            <label for="tanggal_mulai" class="form-label">tanggal_mulai</label>
+            <label for="tanggal_mulai" class="form-label">Tanggal Mulai</label>
             <input type="date" name="tanggal_mulai" id="tanggal_mulai" class="form-control" required />
             <div class="invalid-feedback">Tanggal mulai harus diisi.</div>
           </div>
           
           <!-- Tanggal Selesai -->
           <div class="mb-3">
-            <label for="tanggal_selesai" class="form-label">	tanggal_selesai</label>
+            <label for="tanggal_selesai" class="form-label">Tanggal Selesai</label>
             <input type="date" name="tanggal_selesai" id="tanggal_selesai" class="form-control" required />
             <div class="invalid-feedback">Tanggal selesai harus diisi.</div>
           </div>
           
+          <!-- Pendonatur ID -->
+          <!-- <div class="mb-3">
+            <label for="pendonatur_id" class="form-label">Pendonatur</label>
+            <select name="pendonatur_id" id="pendonatur_id" class="form-select" required>
+              <option value="">-- Pilih Pendonatur --</option> -->
+              <!-- Contoh opsi, ganti dengan data dari database -->
+              <!-- <option value="1">Pendonatur 1</option>
+              <option value="2">Pendonatur 2</option>
+              <option value="3">Pendonatur 3</option>
+            </select>
+            <div class="invalid-feedback">Pendonatur harus dipilih.</div>
+          </div> -->
+          
           <!-- Status -->
           <div class="mb-3">
-            <label for="status" class="form-label">dibuat_pada</label>
+            <label for="status" class="form-label">Status</label>
             <select name="status" id="status" class="form-select" required>
               <option value="">-- Pilih Status --</option>
               <option value="aktif" selected>Aktif</option>
@@ -137,7 +146,7 @@ $kampanye = query("SELECT * FROM kampanye");
           <!-- Submit Button -->
           <div class="text-center">
             <button type="submit" class="btn btn-primary btn-lg fs-6">Buat Kampanye</button>
-          <button type="reset" class="btn btn-secondary btn-lg fs-6 ms-2">Reset</button>
+            <button type="reset" class="btn btn-secondary btn-lg fs-6 ms-2">Reset</button>
           </div>
         </form>
       </div>
@@ -145,92 +154,42 @@ $kampanye = query("SELECT * FROM kampanye");
   </div>
 </section>
 
-<tr>
-      <th>judul</th>
-      <th>deskripsi</th>
-      <th>target_dana</th>
-      <th>dana_terkumpul</th>
-      <th>tanggal_mulai</th>
-      <th>tanggal_selesai</th>
-      <th>dibuat_pada</th>
-    </tr>
-  </thead>
- <tbody>
-  <?php foreach($kampanye as $k): ?>
-    <tr>
-      <td><?= htmlspecialchars($k['judul']); ?></td>
-      <td><?= htmlspecialchars($k['deskripsi']); ?></td>
-      <td><?= number_format($k['target_dana'], 0, ',', '.'); ?></td>
-      <td><?= number_format($k['dana_terkumpul'], 0, ',', '.'); ?></td>
-      <td><?= htmlspecialchars($k['tanggal_mulai']); ?></td>
-      <td><?= htmlspecialchars($k['tanggal_selesai']); ?></td>
-      <td><?= htmlspecialchars($k['dibuat_pada']); ?></td>
-
-  <td>
-  <img src="img/<?= htmlspecialchars($k['gambar']); ?>" style="width: 100px; height: 100px; object-fit: cover;" alt="Gambar Kampanye">
-</td>
-  <?php endforeach; ?>
-</tbody>
-
   
 
 
 
-  <!-- Form Donasi -->
-  <section id="donasi" class="py-5">
-    <div class="container">
-      <h2 class="text-center mb-4">Form Donasi</h2>
-      <form action="donasi.php" method="post">
-        <div class="mb-3">
-          <label for="nama" class="form-label">id_pendonatur</label>
-          <input type="text" name="nama" id="nama" class="form-control" required />
-        </div>
-        <div class="mb-3">
-          <label for="email" class="form-label">jumlah</label>
-          <input type="email" name="email" id="email" class="form-control" required />
-        </div>
-         <div class="mb-3">
-          <label for="telepon" class="form-label">pesan</label>
-          <input type="telepon" name="email" id="telepon" class="form-control" required />
-        </div>
-        <div class="mb-3">
-          <label for="tanggal donasi" class="form-label">tanggal_donasi</label>
-          <select name="tanggal donasi" id="tanggal donasi" class="form-control" required> 
-          </select>
-        </div>
-        <div class="text-center">
-          <button type="submit" class="btn btn-primary">Kirim Donasi</button>
-        </div>
-        <table class="table table-bordered">
-  <thead>
-    <tr>
-      <th>No</th>
-      <th>ID Pendonatur</th>
-      <th>Jumlah</th>
-      <th>Pesan</th>
-      <th>Tanggal Donasi</th>
-      <th>Aksi</th>
-    </tr>
-  </thead>
-  <tbody>
-    <?php $i = 1; ?>
-    <?php foreach($donasi as $d): ?>
-      <tr>
-        <td><?= $i++; ?></td>
-        <td><?= ($d['id_pendonatur']); ?></td>
-        <td><?= ($d['jumlah']); ?></td>
-        <td><?= ($d['pesan']); ?></td>
-        <td><?= ($d['tanggal_donasi']); ?></td>
-        <td>
-          <a href="hapus.php?id=<?= $d['id']; ?>" onclick="return confirm('Yakin ingin menghapus donasi ini?')">Hapus</a>
-        </td>
-      </tr>
-    <?php endforeach; ?>
-  </tbody>
-</table>        
-      </form>
-    </div>
-  </section>
+ <!-- Form Donasi -->
+<section id="donasi" class="py-5">
+  <div class="container">
+    <h2 class="text-center mb-4">Form Donasi</h2>
+    <form action="../donasi.php" method="post">
+      <div class="mb-3">
+        <label for="pendonatur_id" class="form-label">ID Pendonatur</label>
+        <input type="number" name="pendonatur_id" id="pendonatur_id" class="form-control" required />
+      </div>
+
+      <div class="mb-3">
+        <label for="jumlah" class="form-label">Jumlah Donasi</label>
+        <input type="number" step="0.01" name="jumlah" id="jumlah" class="form-control" required />
+      </div>
+
+      <div class="mb-3">
+        <label for="pesan" class="form-label">Pesan</label>
+        <input type="text" name="pesan" id="pesan" class="form-control" />
+      </div>
+
+      <div class="mb-3">
+        <label for="tanggal_donasi" class="form-label">Tanggal Donasi</label>
+        <input type="date" name="tanggal_donasi" id="tanggal_donasi" class="form-control" required />
+      </div>
+
+      <div class="text-center">
+        <button type="submit" class="btn btn-primary">Kirim Donasi</button>
+      </div>
+    </form>
+  </div>
+</section>
+
 
   <!-- Footer -->
   <footer class="bg-dark text-light py-4">
