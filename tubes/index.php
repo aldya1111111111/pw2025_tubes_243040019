@@ -41,7 +41,7 @@ $kampanye = query("SELECT * FROM kampanye");
         <li class="nav-item mx-2"><a class="nav-link" href="#donasi">Donasi</a></li>
       </ul>
       <div>
-        <button class="btn btn-light me-2">Daftar</button>
+        <button class="btn btn-light me-2"> Daftar</button>
         <button class="btn btn-outline-light">Masuk</button>
       </div>
     </div>
@@ -62,7 +62,7 @@ $kampanye = query("SELECT * FROM kampanye");
   </section>
 
  <!-- Kampanye Section -->
-<section id="kampanye-baru" class="py-5 bg-light">
+<section id="kampanye" class="py-5 bg-light">
   <div class="container">
     <h2 class="text-center mb-4">Kampanye Donasi</h2>
     <div class="row justify-content-center">
@@ -108,18 +108,6 @@ $kampanye = query("SELECT * FROM kampanye");
             <div class="invalid-feedback">Tanggal selesai harus diisi.</div>
           </div>
           
-          <!-- Pendonatur ID -->
-          <!-- <div class="mb-3">
-            <label for="pendonatur_id" class="form-label">Pendonatur</label>
-            <select name="pendonatur_id" id="pendonatur_id" class="form-select" required>
-              <option value="">-- Pilih Pendonatur --</option> -->
-              <!-- Contoh opsi, ganti dengan data dari database -->
-              <!-- <option value="1">Pendonatur 1</option>
-              <option value="2">Pendonatur 2</option>
-              <option value="3">Pendonatur 3</option>
-            </select>
-            <div class="invalid-feedback">Pendonatur harus dipilih.</div>
-          </div> -->
           
           <!-- Status -->
           <div class="mb-3">
