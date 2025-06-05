@@ -36,14 +36,25 @@ $kampanye = query("SELECT * FROM kampanye");
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav mx-auto">
-        <li class="nav-item mx-2"><a class="nav-link active" href="#home">Home</a></li>
+        <li class="nav-item mx-2"><a class="nav-link "href="#home">Home</a></li>
         <li class="nav-item mx-2"><a class="nav-link" href="#kampanye">Kampanye</a></li>
         <li class="nav-item mx-2"><a class="nav-link" href="#donasi">Donasi</a></li>
       </ul>
-      <div>
-        <button class="btn btn-light me-2"> Daftar</button>
-        <button class="btn btn-outline-light">Masuk</button>
-      </div>
+<div>
+  <form action="login/daftar.php" method="get" style="display:inline;">
+    <button type="submit" class="btn btn-outline-light me-2" style="background-color: white; color: #0077b6; border: 2px solid #0077b6;">
+      Daftar
+    </button>
+  </form>
+
+  <form action="login/login.php" method="get" style="display:inline;">
+    <button type="submit" class="btn btn-outline-light" style="border: 2px solid white;">
+      Masuk
+    </button>
+  </form>
+</div>
+
+
     </div>
   </div>
 </nav>
@@ -55,7 +66,7 @@ $kampanye = query("SELECT * FROM kampanye");
       <img src="../tubes/img/donasi.jpg" class="img-fluid w-100 vh-100" alt="Banner Donasi" style="object-fit: cover;" />
       <div class="position-absolute top-50 start-50 translate-middle text-center text-white">
         <h1 class="display-3">Donasi Peduli</h1>
-        <p class="lead">Bersama kita bisa membantu mereka yang membutuhkan.</p>
+       <p class="lead text-dark">Bersama kita bisa membantu mereka yang membutuhkan.</p>
         <a href="#kampanye" class="btn btn-light btn-lg">Lihat Kampanye</a>
       </div>
     </div>
@@ -63,7 +74,7 @@ $kampanye = query("SELECT * FROM kampanye");
 
  <!-- Kampanye Section -->
 <section id="kampanye" class="py-5 bg-light">
-  <div class="container">
+<div class="bg-white text-dark p-3">
     <h2 class="text-center mb-4">Kampanye Donasi</h2>
     <div class="row justify-content-center">
       <div class="col-md-8">
@@ -121,20 +132,20 @@ $kampanye = query("SELECT * FROM kampanye");
             <div class="invalid-feedback">Status kampanye harus dipilih.</div>
           </div>
           
-          <!-- Upload Gambar (Opsional) -->
+          <!-- Upload Gambar -->
           <div class="mb-3">
             <label for="gambar" class="form-label">Gambar Kampanye</label>
             <input type="file" name="gambar" id="gambar" class="form-control" accept="image/*" />
             <div class="form-text">Format: JPG, PNG, JPEG. Maksimal 2MB.</div>
           </div>
           
-          <!-- Dibuat Pada (Hidden - Otomatis) -->
+          <!-- Dibuat Pada -->
           <input type="hidden" name="dibuat_pada" value="<?= date('Y-m-d H:i:s') ?>" />
           
           <!-- Submit Button -->
           <div class="text-center">
             <button type="submit" class="btn btn-primary btn-lg fs-6">Buat Kampanye</button>
-            <button type="reset" class="btn btn-secondary btn-lg fs-6 ms-2">Reset</button>
+            <button type="reset" class="btn btn-danger btn-lg fs-6 ms-2">Reset</button>
           </div>
         </form>
       </div>
@@ -148,7 +159,7 @@ $kampanye = query("SELECT * FROM kampanye");
 
  <!-- Form Donasi -->
 <section id="donasi" class="py-5">
-  <div class="container">
+  <div class="bg-white text-dark p-3">
     <h2 class="text-center mb-4">Form Donasi</h2>
     <form action="../donasi.php" method="post">
       <div class="mb-3">
@@ -172,7 +183,7 @@ $kampanye = query("SELECT * FROM kampanye");
       </div>
 
       <div class="text-center">
-        <button type="submit" class="btn btn-primary">Kirim Donasi</button>
+        <button type="submit" class="btn btn-success">Kirim Donasi</button>
       </div>
     </form>
   </div>

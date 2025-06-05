@@ -5,7 +5,6 @@ $password = "";
 $dbname = "pw2025_tubes_243040019";
 
 $conn = new mysqli($servername, $username, $password, $dbname);
-
 // Cek koneksi
 if ($conn->connect_error) {
     die("Koneksi gagal: " . $conn->connect_error);

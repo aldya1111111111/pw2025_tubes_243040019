@@ -1,6 +1,6 @@
 
 body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #e6f0ff;
   scroll-behavior: smooth;
 }
 
@@ -55,6 +55,7 @@ section h2 {
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
   border: none;
   transition: transform 0.2s ease;
+  color: ;
 }
 
 #kampanye .card:hover {
