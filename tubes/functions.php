@@ -1,4 +1,4 @@
-<?php 
+<!-- <?php 
 
 function koneksi()
 {
@@ -21,5 +21,5 @@ function query($query)
 }
 
 
-?>
+?> -->
 
