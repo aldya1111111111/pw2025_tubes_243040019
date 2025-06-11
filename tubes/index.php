@@ -15,7 +15,17 @@
 </head>
 <body>
 
-  <!-- Navbar -->
+  <?php
+session_start();
+
+// Redirect ke login jika belum login
+if (!isset($_SESSION['pendonatur_id'])) {
+    header("Location: ../login/daftar.php");
+    exit;
+}
+?>
+
+<!-- Navbar -->
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
   <div class="container-fluid">
     <a class="navbar-brand" href="#">Donasi</a>
@@ -24,28 +34,28 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav mx-auto">
-        <li class="nav-item mx-2"><a class="nav-link "href="#home">Home</a></li>
+        <li class="nav-item mx-2"><a class="nav-link" href="#home">Home</a></li>
         <li class="nav-item mx-2"><a class="nav-link" href="#Bantuan">Bantuan</a></li>
         <li class="nav-item mx-2"><a class="nav-link" href="#kampanye">Kampanye</a></li>
         <li class="nav-item mx-2"><a class="nav-link" href="#donasi">Donasi</a></li>
-        
       </ul>
       <div>
-        <form action="../login/daftar.php" method="get" style="display:inline;">
-          <button type="submit" class="btn btn-outline-light me-2" style="background-color: white; color: #0077b6; border: 2px solid #0077b6;">
-            Daftar
-          </button>
-        </form>
-
-        <form action="../login/login.php" method="get" style="display:inline;">
-          <button type="submit" class="btn btn-outline-light" style="border: 2px solid white;">
-            Masuk
-          </button>
+        <span class="text-white me-3">Halo, <?= htmlspecialchars($_SESSION['nama']); ?>!</span>
+        <form action="../login/logout.php" method="post" style="display:inline;">
+          <button type="submit" class="btn btn-outline-light" style="border: 2px solid white;">Logout</button>
         </form>
       </div>
     </div>
   </div>
 </nav>
+
+<!-- Konten utama -->
+<!-- <div class="container" style="margin-top: 100px;">
+  <h1>Selamat datang, <?= htmlspecialchars($_SESSION['nama']); ?>!</h1>
+  <p></p>
+</div> -->
+
+
 
   <!-- Home Section -->
   <section id="home" class="text-info bg-primary">
@@ -60,7 +70,7 @@
   </section>
 
 
-    <!-- Munu -->
+    <!-- bantuan -->
      <section id="Bantuan" class="py-5 bg-light">
       <div class="container">
         <h2 class="text-center">Bantuan</h2>
