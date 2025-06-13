@@ -15,7 +15,6 @@ if (!$result) {
 
 <!DOCTYPE html>
 <html lang="id">
-<!-- lanjutan HTML kamu -->
 
 
 <!DOCTYPE html>

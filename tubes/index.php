@@ -24,51 +24,51 @@ if (!isset($_SESSION['pendonatur_id'])) {
     exit;
 }
 ?>
-
 <!-- Navbar -->
-<nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="#">Donasi</a>
+<nav class="navbar navbar-expand-lg navbar-dark bg-gradient fixed-top shadow-sm" style="background: linear-gradient(90deg, #007bff, #0056b3);">
+  <div class="container">
+    <a class="navbar-brand fw-bold" href="#" style="font-size: 1.5rem;">🌟 Donasi</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
       <span class="navbar-toggler-icon"></span>
     </button>
+    
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav mx-auto">
-        <li class="nav-item mx-2"><a class="nav-link" href="#home">Home</a></li>
-        <li class="nav-item mx-2"><a class="nav-link" href="#Bantuan">Bantuan</a></li>
-        <li class="nav-item mx-2"><a class="nav-link" href="#kampanye">Kampanye</a></li>
-        <li class="nav-item mx-2"><a class="nav-link" href="#donasi">Donasi</a></li>
+        <li class="nav-item mx-2">
+          <a class="nav-link fw-semibold text-white" href="#home">Home</a>
+        </li>
+        <li class="nav-item mx-2">
+          <a class="nav-link fw-semibold text-white" href="#Bantuan">Bantuan</a>
+        </li>
+        <li class="nav-item mx-2">
+          <a class="nav-link fw-semibold text-white" href="#kampanye">Kampanye</a>
+        </li>
+        <li class="nav-item mx-2">
+          <a class="nav-link fw-semibold text-white" href="#donasi">Donasi</a>
+        </li>
       </ul>
-      <div>
-        <span class="text-white me-3">Halo, <?= htmlspecialchars($_SESSION['nama']); ?>!</span>
-        <form action="../login/logout.php" method="post" style="display:inline;">
-          <button type="submit" class="btn btn-outline-light" style="border: 2px solid white;">Logout</button>
+
+      <div class="d-flex align-items-center">
+        <span class="text-white me-3">👋 Halo, <strong><?= htmlspecialchars($_SESSION['nama']); ?></strong></span>
+        <form action="../login/logout.php" method="post" class="d-inline">
+          <button type="submit" class="btn btn-light btn-sm rounded-pill px-3 fw-semibold">Logout</button>
         </form>
       </div>
     </div>
   </div>
 </nav>
 
-<!-- Konten utama -->
-<!-- <div class="container" style="margin-top: 100px;">
-  <h1>Selamat datang, <?= htmlspecialchars($_SESSION['nama']); ?>!</h1>
-  <p></p>
-</div> -->
-
 
 
   <!-- Home Section -->
-  <section id="home" class="text-info bg-primary">
-    <div class="position-relative">
-      <img src="../tubes/img/donasi.jpg" class="img-fluid w-100 vh-100" alt="Banner Donasi" style="object-fit: cover;" />
-      <div class="position-absolute top-50 start-50 translate-middle text-center text-white">
-        <h1 class="display-3">Donasi Peduli</h1>
-        <p class="lead text-dark">Bersama kita bisa membantu mereka yang membutuhkan.</p>
-        <a href="#kampanye" class="btn btn-light btn-lg">Lihat Kampanye</a>
-      </div>
-    </div>
-  </section>
-
+<section id="home" class="position-relative">
+  <img src="../tubes/img/donasi.jpg" class="img-fluid w-100 vh-100" alt="Banner Donasi" style="object-fit: cover; filter: brightness(60%);" />
+  <div class="position-absolute top-50 start-50 translate-middle text-center text-white">
+    <h1 class="display-2 fw-bold">Donasi Peduli</h1>
+    <p class="lead mb-4">💖 Bersama kita bisa membantu mereka yang membutuhkan.</p>
+    <a href="#kampanye" class="btn btn-light btn-lg px-4 py-2 rounded-pill shadow">Lihat Kampanye</a>
+  </div>
+</section>
 
     <!-- bantuan -->
      <section id="Bantuan" class="py-5 bg-light">
@@ -106,57 +106,57 @@ if (!isset($_SESSION['pendonatur_id'])) {
       </div>
      </section>
 
- <!-- Kampanye Section -->
+<!-- Kampanye Section -->
 <section id="kampanye" class="py-5 bg-light">
-  <div class="bg-white text-dark p-3">
-    <h2 class="text-center mb-4">Buat Kampanye Donasi</h2>
-    <div class="row justify-content-center">
-      <div class="col-md-8">
-        <form action="../kampanye_controller.php" method="post" class="needs-validation" novalidate enctype="multipart/form-data">
+  <div class="container bg-white rounded-4 shadow-lg p-5">
+    <h2 class="text-center mb-5 fw-bold text-primary">Buat Kampanye Donasi</h2>
 
+    <div class="row justify-content-center">
+      <div class="col-lg-8">
+        <form action="../kampanye_controller.php" method="post" class="needs-validation" novalidate enctype="multipart/form-data">
+          
           <!-- Judul Kampanye -->
-          <div class="mb-3">
-            <label for="judul" class="form-label">Judul</label>
-            <input type="text" name="judul" id="judul" class="form-control" required maxlength="300" />
+          <div class="mb-4">
+            <label for="judul" class="form-label fw-semibold">Judul Kampanye</label>
+            <input type="text" name="judul" id="judul" class="form-control form-control-lg rounded-3" required maxlength="300" placeholder="Contoh: Bantu Korban Banjir">
             <div class="invalid-feedback">Judul kampanye harus diisi (maksimal 300 karakter).</div>
           </div>
 
           <!-- Deskripsi -->
-          <div class="mb-3">
-            <label for="deskripsi" class="form-label">Deskripsi</label>
-            <textarea name="deskripsi" id="deskripsi" class="form-control" rows="4" required placeholder="Jelaskan tujuan dan manfaat kampanye ini..."></textarea>
+          <div class="mb-4">
+            <label for="deskripsi" class="form-label fw-semibold">Deskripsi</label>
+            <textarea name="deskripsi" id="deskripsi" class="form-control rounded-3" rows="5" required placeholder="Jelaskan tujuan dan manfaat kampanye ini..."></textarea>
             <div class="invalid-feedback">Deskripsi kampanye harus diisi.</div>
           </div>
 
           <!-- Target Dana -->
-          <div class="mb-3">
-            <label for="target_dana" class="form-label">Target Dana</label>
-            <input type="number" name="target_dana" id="target_dana" class="form-control" required min="1000000" step="1000" />
+          <div class="mb-4">
+            <label for="target_dana" class="form-label fw-semibold">Target Dana (Rp)</label>
+            <input type="number" name="target_dana" id="target_dana" class="form-control rounded-3" required min="1000000" step="1000" placeholder="Contoh: 5000000">
             <div class="form-text">Minimal target dana Rp 1.000.000</div>
             <div class="invalid-feedback">Target dana harus diisi minimal Rp 1.000.000.</div>
           </div>
 
-          <!-- Dana Terkumpul (Hidden/Readonly) -->
           <input type="hidden" name="dana_terkumpul" value="0" />
 
-          <!-- Tanggal Mulai -->
-          <div class="mb-3">
-            <label for="tanggal_mulai" class="form-label">Tanggal Mulai</label>
-            <input type="date" name="tanggal_mulai" id="tanggal_mulai" class="form-control" required />
-            <div class="invalid-feedback">Tanggal mulai harus diisi.</div>
-          </div>
-
-          <!-- Tanggal Selesai -->
-          <div class="mb-3">
-            <label for="tanggal_selesai" class="form-label">Tanggal Selesai</label>
-            <input type="date" name="tanggal_selesai" id="tanggal_selesai" class="form-control" required />
-            <div class="invalid-feedback">Tanggal selesai harus diisi.</div>
+          <!-- Tanggal Mulai & Selesai -->
+          <div class="row">
+            <div class="col-md-6 mb-4">
+              <label for="tanggal_mulai" class="form-label fw-semibold">Tanggal Mulai</label>
+              <input type="date" name="tanggal_mulai" id="tanggal_mulai" class="form-control rounded-3" required>
+              <div class="invalid-feedback">Tanggal mulai harus diisi.</div>
+            </div>
+            <div class="col-md-6 mb-4">
+              <label for="tanggal_selesai" class="form-label fw-semibold">Tanggal Selesai</label>
+              <input type="date" name="tanggal_selesai" id="tanggal_selesai" class="form-control rounded-3" required>
+              <div class="invalid-feedback">Tanggal selesai harus diisi.</div>
+            </div>
           </div>
 
           <!-- Status -->
-          <div class="mb-3">
-            <label for="status" class="form-label">Status</label>
-            <select name="status" id="status" class="form-select" required>
+          <div class="mb-4">
+            <label for="status" class="form-label fw-semibold">Status Kampanye</label>
+            <select name="status" id="status" class="form-select rounded-3" required>
               <option value="">-- Pilih Status --</option>
               <option value="aktif" selected>Aktif</option>
               <option value="selesai">Selesai</option>
@@ -165,67 +165,76 @@ if (!isset($_SESSION['pendonatur_id'])) {
             <div class="invalid-feedback">Status kampanye harus dipilih.</div>
           </div>
 
-          <!-- Upload Gambar -->
-          <div class="mb-3">
-            <label for="gambar" class="form-label">Gambar Kampanye</label>
-            <input type="file" name="gambar" id="gambar" class="form-control" accept="image/*" />
+          <!-- Gambar Kampanye -->
+          <div class="mb-4">
+            <label for="gambar" class="form-label fw-semibold">Gambar Kampanye</label>
+            <input type="file" name="gambar" id="gambar" class="form-control" accept="image/*">
             <div class="form-text">Format: JPG, PNG, JPEG. Maksimal 2MB.</div>
           </div>
 
-          <!-- Dibuat Pada -->
           <input type="hidden" name="dibuat_pada" value="" />
 
-          <!-- Submit Button -->
-          <div class="text-center">
-            <button type="submit" class="btn btn-primary btn-lg fs-6">Buat Kampanye</button>
-            <button type="reset" class="btn btn-danger btn-lg fs-6 ms-2">Reset</button>
+          <!-- Tombol -->
+          <div class="text-center mt-4">
+            <button type="submit" class="btn btn-primary btn-lg rounded-pill px-5 me-2 shadow">Buat Kampanye</button>
+            <button type="reset" class="btn btn-outline-danger btn-lg rounded-pill px-5 shadow">Reset</button>
           </div>
+
         </form>
       </div>
     </div>
   </div>
 </section>
 
- <!-- Form Donasi -->
-<section id="donasi" class="py-5">
-  <div class="bg-white text-dark p-3">
-    <h2 class="text-center mb-4">Form Donasi</h2>
-    <form action="../donasi.php" method="post">
+<!-- Form Donasi -->
+<section id="donasi" class="py-5 bg-light">
+  <div class="container bg-white rounded-4 shadow p-5">
+    <h2 class="text-center mb-4 text-primary fw-bold">Form Donasi</h2>
+
+    <form action="../donasi.php" method="post" class="needs-validation" novalidate>
+      <!-- ID Pendonatur -->
       <div class="mb-3">
-        <label for="pendonatur_id" class="form-label">ID Pendonatur</label>
-        <input type="number" name="pendonatur_id" id="pendonatur_id" class="form-control" required />
+        <label for="pendonatur_id" class="form-label fw-semibold">ID Pendonatur</label>
+        <input type="number" name="pendonatur_id" id="pendonatur_id" class="form-control rounded-3" required placeholder="Masukkan ID Anda">
+        <div class="invalid-feedback">ID Pendonatur wajib diisi.</div>
       </div>
 
+      <!-- Jumlah Donasi -->
       <div class="mb-3">
-        <label for="jumlah" class="form-label">Jumlah Donasi</label>
-        <input type="number" step="0.01" name="jumlah" id="jumlah" class="form-control" required />
+        <label for="jumlah" class="form-label fw-semibold">Jumlah Donasi (Rp)</label>
+        <input type="number" step="1000" name="jumlah" id="jumlah" class="form-control rounded-3" required placeholder="Contoh: 100000">
+        <div class="invalid-feedback">Jumlah donasi tidak boleh kosong.</div>
       </div>
 
+      <!-- Pesan -->
       <div class="mb-3">
-        <label for="pesan" class="form-label">Pesan</label>
-        <input type="text" name="pesan" id="pesan" class="form-control" />
+        <label for="pesan" class="form-label fw-semibold">Pesan (Opsional)</label>
+        <input type="text" name="pesan" id="pesan" class="form-control rounded-3" placeholder="Tulis pesan untuk penerima donasi...">
       </div>
 
-      <div class="mb-3">
-        <label for="tanggal_donasi" class="form-label">Tanggal Donasi</label>
-        <input type="date" name="tanggal_donasi" id="tanggal_donasi" class="form-control" required />
+      <!-- Tanggal Donasi -->
+      <div class="mb-4">
+        <label for="tanggal_donasi" class="form-label fw-semibold">Tanggal Donasi</label>
+        <input type="date" name="tanggal_donasi" id="tanggal_donasi" class="form-control rounded-3" required>
+        <div class="invalid-feedback">Tanggal donasi harus diisi.</div>
       </div>
 
+      <!-- Submit Button -->
       <div class="text-center">
-        <button type="submit" class="btn btn-success">Kirim Donasi</button>
+        <button type="submit" class="btn btn-success btn-lg rounded-pill px-5 shadow-sm">Kirim Donasi</button>
       </div>
     </form>
   </div>
-</section>
-
-  <!-- Footer -->
+  <!-- footer -->
   <footer class="bg-dark text-light py-4">
     <div class="container text-center">
       <p>&copy; 2025 Website Donasi. Bersama Kita Peduli.</p>
     </div>
   </footer>
-
-  <!-- Bootstrap JS -->
+   <!-- Bootstrap JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
-</body>
-</html>
+  </body>
+  </html>
+</section>
+
+
